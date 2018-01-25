@@ -13,6 +13,8 @@ import { BookingComponent } from './components/booking/booking.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { GetreservationService } from '../app/services/getreservation.service';
 import { AdminpanelComponent } from './components/adminpanel/adminpanel.component';
+import { ChecktableService } from './services/checktable.service';
+import { ReserveService } from './services/reserve.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,7 @@ import { AdminpanelComponent } from './components/adminpanel/adminpanel.componen
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [CanDeactivateGuard, GetreservationService],
+  providers: [CanDeactivateGuard, GetreservationService, ChecktableService, ReserveService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

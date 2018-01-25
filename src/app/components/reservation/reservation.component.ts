@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GetreservationService } from '../../services/getreservation.service';
-import {MenuItemComponent} from '../menu-item/menu-item.component';
+
 
 @Component({
   selector: 'app-reservation',
@@ -9,7 +9,6 @@ import {MenuItemComponent} from '../menu-item/menu-item.component';
 })
 export class ReservationComponent implements OnInit {
   currentval: String;
-  curentquntity: number;
   andis: number;
   current: { id: number, price: number, imageurl: String, name: string };
   subtrack: { foodid: number, price: number, quntity: number, name: String }
