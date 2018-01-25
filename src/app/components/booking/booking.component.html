@@ -1,0 +1,48 @@
+<div class="container-fluid">
+  <div class="row content">
+    <div class="col-sm-3 sidenav">
+      <h2>{{ContactInfo}}</h2>
+      <ul class="nav nav-pills nav-stacked">
+        <div class="item">
+          <img src={{coffe}}>
+          <img src={{glass}}>
+          <img src={{meat}}>
+        </div>
+        <li> <a>{{address}}</a></li>
+        <li><a >{{tel}}</a></li>
+        <li><a >{{gmail}}</a></li>
+      </ul><br>
+      <h4> Booking a table online is easy and takes just a couple of minutes</h4> <br>
+
+       <p> We require credit card details for dinner reservations on Friday & Saturday and to guarantee parties of four guests and above.
+
+        If you need to cancel your booking, please kindly inform us no later than 48 hours prior to your reserved time. A cancellation fee of £50 per person will apply after this time.
+
+        Shall your party size decrease, please let us know 24 hours in advance, regrettably if we are not aware of a decrease within 24 hours of your booking, we will charge for the known fee.
+
+        Please do let us know if there is anything else we can do to assist in making your meal more enjoyable.
+
+        We look forward to welcoming you at Angler.</p>
+    </div>
+
+    <div class="col-sm-9">
+      <h2>{{reservationform}}</h2>
+      <form action="/action_page.php">
+        <div class="form-group">
+          <label for="time">Time:</label>
+          <input type="time" class="form-control" id="time">
+        </div>
+        <div class="form-group">
+          <label for="date">Date:</label>
+          <input type="date" class="form-control" id="date">
+        </div>
+        <div class="form-group">
+          <label for="partysize">Party Size:</label>
+          <input type="number" class="form-control" id="partysize">
+        </div>
+        <button type="submit" class="btn btn-default">Book now</button>
+      </form>
+            </div>
+          </div>
+        </div>
+

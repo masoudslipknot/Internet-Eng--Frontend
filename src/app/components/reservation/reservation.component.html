@@ -1,0 +1,111 @@
+<div class="row">
+  <!--Bill-->
+  <div class="col-sm-4">
+
+    <!--<div class="card" style="width: 50rem; height: auto; float: left ; margin-left:15%; margin-top: 7%">-->
+      <!--<div class="card-block">-->
+        <!--<h4 class="card-title">Restaurant bill</h4>-->
+        <!--<p class="card-text">All of your choises are listed bellow</p>-->
+        <!--<div *ngFor="let y of chosenfood">-->
+          <!--<li class="list-group-item"> {{ y.id }} {{y.name}} }} }} {{ y.price }}</li>-->
+        <!--</div>-->
+        <!--<a href="#" class="btn btn-primary">Pay Online!</a>-->
+      <!--</div>-->
+    <!--</div>-->
+    <div class="row">
+      <div class="col-md-12" style="margin-top:10%; margin-left: 7%;">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="text-center"><strong>Order summary</strong></h3>
+          </div>
+          <div class="panel-body">
+            <div class="table-responsive">
+              <table class="table table-condensed">
+                <thead>
+                <tr>
+                  <td><strong>Item Name</strong></td>
+                  <td class="text-center"><strong>Item Price</strong></td>
+                  <td class="text-center"><strong>Item Quantity</strong></td>
+                  <td class="text-right"><strong>Total</strong></td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <td>Samsung Galaxy S5</td>
+                  <td class="text-center">$900</td>
+                  <td class="text-center">1</td>
+                  <td class="text-right">$900</td>
+                </tr>
+                <tr>
+                  <td>Samsung Galaxy S5 Extra Battery</td>
+                  <td class="text-center">$30.00</td>
+                  <td class="text-center">1</td>
+                  <td class="text-right">$30.00</td>
+                </tr>
+                <tr>
+                  <td>Screen protector</td>
+                  <td class="text-center">$7</td>
+                  <td class="text-center">4</td>
+                  <td class="text-right">$28</td>
+                </tr>
+                <tr>
+                  <td class="highrow"></td>
+                  <td class="highrow"></td>
+                  <td class="highrow text-center"><strong>Subtotal</strong></td>
+                  <td class="highrow text-right">$958.00</td>
+                </tr>
+                <tr>
+                  <td class="emptyrow"></td>
+                  <td class="emptyrow"></td>
+                  <td class="emptyrow text-center"><strong>Shipping</strong></td>
+                  <td class="emptyrow text-right">$20</td>
+                </tr>
+                <tr>
+                  <td class="emptyrow"><i class="fa fa-barcode iconbig"></i></td>
+                  <td class="emptyrow"></td>
+                  <td class="emptyrow text-center"><strong>Total</strong></td>
+                  <td class="emptyrow text-right">$978.00</td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <BUTTON href="#" style="margin-left: 10%; margin-bottom: 3%;"  class="btn btn-primary">Pay Online!</BUTTON>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!--Food Menu-->
+  <div id = "container" class=" col-sm-8" style=" height: 630px; overflow: auto" >
+    <div *ngFor="let x of testreservation" style="float: left ; margin:5%" >
+
+      <div class="card" style="width: 31.5rem; background-color: #f1f1f1;">
+        <img class="card-img-top" src="{{x.imageurl}}" alt="Card image cap">
+        <div class="card-block">
+          <h4 class="card-title" style="padding: 10px">{{ x.name }}</h4>
+          <p class="card-text" style="padding: 10px">{{ desription }}</p>
+        </div>
+        <ul class="list-group list-group-flush" style="margin-bottom: 0px">
+          <li class="list-group-item">Price: {{ x.price }}</li>
+          <li class="list-group-item">{{ classtype }}</li>
+          <li class="list-group-item">{{ info }}</li>
+        </ul>
+        <div class="card-block">
+          <!--<button type="submit" class="btn btn-default" style="width: 25%;">{{add}}</button>-->
+          <!--<T-->
+          <!--<button type="submit" class="btn btn-default" style="width: 25%;">{{remove}}</button>-->
+          <div class="input-group" >
+            <span class="input-group-addon" style="width: 25%" (click)="addS(x.id)">+</span>
+            <input id="menu{{x.id}}"  value="0" type="text"  style="height: 50px; width: 100%" class="form-control" aria-label="Amount (to the nearest dollar)">
+            <span class="input-group-addon" style="width: 25%" (click)="removeS(x.id)">-</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
