@@ -1,3 +1,23 @@
-<p>
-  menu works!
-</p>
+<div class="row">
+<div id = "container" class="row" style=" height: 630px; overflow: auto" >
+  <div *ngFor="let x of testreservation" style="float: left ; margin:5%" >
+
+    <div class="card" style="width: 31.5rem; background-color: #f1f1f1;">
+      <img class="card-img-top" src="{{x.imageurl}}" alt="Card image cap">
+      <div class="card-block">
+        <h4 class="card-title" style="padding: 10px">{{ x.name }}</h4>
+        <p class="card-text" style="padding: 10px">{{ desription }}</p>
+      </div>
+      <ul class="list-group list-group-flush" style="margin-bottom: 0px">
+        <li class="list-group-item">Price: {{ x.price }}</li>
+        <li class="list-group-item">{{ classtype }}</li>
+        <li class="list-group-item">{{ info }}</li>
+      </ul>
+      <div class="card-block">
+
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>

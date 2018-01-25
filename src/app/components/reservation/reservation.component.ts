@@ -9,7 +9,11 @@ import {MenuItemComponent} from '../menu-item/menu-item.component';
 })
 export class ReservationComponent implements OnInit {
   currentval: String;
+  curentquntity: number;
+  andis: number;
   current: { id: number, price: number, imageurl: String, name: string };
+  subtrack: { foodid: number, price: number, quntity: number, name: String }
+    = {'foodid': 0, 'price': 0, 'quntity': 0, 'name': 'masoud'};
   curnum: number;
   subtotal = 0;
   total = 0;
@@ -65,8 +69,22 @@ export class ReservationComponent implements OnInit {
     console.log('remove');
     this.currentval = (<HTMLInputElement>document.getElementById('menu' + id)).value;
     this.curnum = Number(this.currentval) - 1;
-    (<HTMLInputElement>document.getElementById('menu' + id)).value = String(this.curnum);
+    if ( this.curnum < 0) {
+      this.curnum = 0;
+    }
 
+      (<HTMLInputElement>document.getElementById('menu' + id)).value = String(this.curnum);
+    this.subtrack = this.chosenfood.find(item => item.foodid === id);
+    this.andis = this.chosenfood.indexOf(this.subtrack);
+    if (this.subtrack.quntity !== 0) {
+      this.subtrack.quntity = this.subtrack.quntity - 1;
+      this.subtotal = 1 * this.subtrack.price;
+      this.total = this.total - this.subtotal;
+      this.taxplus = this.total + 20;
+    }
+    if (this.subtrack.quntity === 0 ) {
+      this.chosenfood.splice(this.andis, 1);
+    }
   }
 
 }
