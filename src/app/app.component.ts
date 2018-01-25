@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {Router} from '@angular/router';
+
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  appname= 'resturant app';
+  home= 'HOME';
+  resturant= 'Book a Table';
+  reservation= 'Reservation';
+  about= 'Menu';
+  Login= 'Login';
+  constructor(private  router: Router) { }
+  navigate() {
+    this.router.navigate(['reservation']);
+  }
+
+
+
 }
