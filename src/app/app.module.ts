@@ -12,6 +12,7 @@ import { ReservationComponent } from './components/reservation/reservation.compo
 import { BookingComponent } from './components/booking/booking.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { GetreservationService } from '../app/services/getreservation.service';
+import { AdminpanelComponent } from './components/adminpanel/adminpanel.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { GetreservationService } from '../app/services/getreservation.service';
     ReservationComponent,
     BookingComponent,
     MenuComponent,
+    AdminpanelComponent,
   ],
   imports: [
     BrowserModule,

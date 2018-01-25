@@ -13,7 +13,7 @@ export class AppComponent {
   resturant= 'Book a Table';
   reservation= 'Reservation';
   about= 'Menu';
-  Login= 'Login';
+  Adamin= 'Adamin';
   constructor(private  router: Router) { }
   navigate() {
     this.router.navigate(['reservation']);
