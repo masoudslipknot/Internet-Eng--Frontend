@@ -52,11 +52,12 @@
           <label for="partysize">Party Size:</label>
           <input type="number" class="form-control" id="partysize">
         </div>
-        <button *ngIf="checkresult" type="button" class="btn btn-default" style="width: 150px;">Book now</button>
+        <button *ngIf="checkresult" type="button" class="btn btn-default" style="width: 150px;" (click)="book()">Book now</button>
         <button type="button" class="btn btn-default" style="width: 150px;" (click)="checkavailability()">Check Availability</button>
       </form>
-      <h3 *ngIf="checkresult"> you can book this table it is avialable! </h3>
+      <h3 *ngIf="checkresult" > you can book this table it is avialable! </h3>
       <h3  *ngIf="checkresult==false"> it can not be booked! </h3>
+      <h3 *ngIf="reservidtoshow"> your reservation id is {{reserid}}</h3>
             </div>
           </div>
         </div>
