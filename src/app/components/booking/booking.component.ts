@@ -13,6 +13,7 @@ export class BookingComponent implements OnInit {
   reserid: number;
   showsecond = false;
   cutsomerid: string;
+  partysize: number;
   date: string;
   time: string;
   checkresult: boolean;
@@ -33,9 +34,10 @@ export class BookingComponent implements OnInit {
   checkavailability(): void {
     this.cutsomerid = (<HTMLInputElement>document.getElementById('customerid')).value;
     this.time = String((<HTMLInputElement>document.getElementById('time')).value);
-    this.date = String((<HTMLInputElement>document.getElementById('date')).value)
-    this.time = this.time.replace(':','');
-    console.log(this.time);
+    this.date = String((<HTMLInputElement>document.getElementById('date')).value);
+    this.partysize = Number((<HTMLInputElement>document.getElementById('partysize')).value);
+    this.time = this.time.replace(':', '');
+    console.log(this.partysize);
     this.checkresult = this.checkstate;
     this.showsecond = true;
 
