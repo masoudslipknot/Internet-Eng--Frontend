@@ -4,7 +4,7 @@
 /* Set gray background color and 100% height */
 .sidenav {
   padding-top: 20px;
-  background-color: #f1f1f1;
+
   height: 100%;
 }
 
@@ -12,14 +12,40 @@
 footer {
   background-color: #555;
   color: white;
-  padding: 15px;
+
 }
 
 /* On small screens, set height to 'auto' for sidenav and grid */
 @media screen and (max-width: 767px) {
-  .sidenav {
-    height: auto;
-    padding: 15px;
-  }
+
   .row.content {height:auto;}
+}
+
+.well{
+  padding: 0;
+}
+
+.event {
+  margin: 0px;
+}
+
+.ads{
+  background-color: rgba(255,255,255,0.7);
+}
+
+.enjoy{
+  background-color: rgba(255,255,255,0.7);
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-bottom: 5px;
+}
+.welcome{
+  background-color: rgba(255,255,255,0.7);
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-bottom: 5px;
+}
+.container-fluid{
+  background-repeat: no-repeat;
+  background-size: cover;
 }
