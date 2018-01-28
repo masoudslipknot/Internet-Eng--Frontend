@@ -1,7 +1,7 @@
 export class Reservation {
-  category: String;
+  category: string;
   id: number;
   price: number;
-  imageurl: String;
+  imageurl: string;
   name: string;
 }

@@ -69,7 +69,8 @@
         <label for="phonenumber">Phonenumber:</label>
         <input type="number" class="form-control" id="phonenumber">
       </div>
-      <button type="button" type="button" class="btn btn-primary" style="width: 150px;"> GetId</button>
+      <button type="button" type="button" class="btn btn-primary" (click)="getID()" style="width: 150px;"> GetId</button>
+        <h3 *ngIf="customercheck"> your reservation id is {{ customernum }}</h3>
       </div>
     </div>
           </div>

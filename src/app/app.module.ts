@@ -16,6 +16,7 @@ import { GetreservationService } from '../app/services/getreservation.service';
 import { AdminpanelComponent } from './components/adminpanel/adminpanel.component';
 import { ChecktableService } from './services/checktable.service';
 import { ReserveService } from './services/reserve.service';
+import {GetcustomeridService} from "./services/getcustomerid.service";
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import { ReserveService } from './services/reserve.service';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [CanDeactivateGuard, GetreservationService, ChecktableService, ReserveService],
+  providers: [CanDeactivateGuard, GetreservationService, ChecktableService, ReserveService, GetcustomeridService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
