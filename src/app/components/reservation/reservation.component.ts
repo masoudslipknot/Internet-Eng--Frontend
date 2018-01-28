@@ -8,28 +8,29 @@ import { GetreservationService } from '../../services/getreservation.service';
   styleUrls: ['./reservation.component.css']
 })
 export class ReservationComponent implements OnInit {
-  currentval: String;
+  currentval: string;
   andis: number;
-  current: { id: number, price: number, imageurl: String, name: string };
-  subtrack: { foodid: number, price: number, quntity: number, name: String }
+  current: { id: number, price: number, imageurl: string, name: string };
+  subtrack: { foodid: number, price: number, quntity: number, name: string }
     = {'foodid': 0, 'price': 0, 'quntity': 0, 'name': 'masoud'};
   curnum: number;
   subtotal = 0;
   total = 0;
   taxplus = 0;
-   curfood: { foodid: number, price: number, quntity: number, name: String }
+   curfood: { foodid: number, price: number, quntity: number, name: string }
     = {'foodid': 0, 'price': 0, 'quntity': 0, 'name': 'masoud'};
   desription= 'enjoy and try the best delicious food that can be found in the world';
   classtype= 'First class';
   add= '+';
   remove= '-';
   info= 'with 5% off';
-  testreservation: { id: number, price: number, imageurl: String, name: string }[];
-  chosenfood: { foodid: number, price: number, quntity: number, name: String }[] = [];
+  testreservation: { category: string, id: number, price: number, imageurl: string, name: string }[];
+  chosenfood: { foodid: number, price: number, quntity: number, name: string }[] = [];
   constructor(private getrese: GetreservationService) { }
 
   getreservation(): void {
     this.testreservation = this.getrese.getreservation();
+    //this.getrese.getreservation().subscribe(reservation => this.testreservation = reservation);
     console.log(this.testreservation);
   }
 
@@ -44,7 +45,7 @@ export class ReservationComponent implements OnInit {
     this.curnum = Number(this.currentval) + 1;
     (<HTMLInputElement>document.getElementById('menu' + id)).value = String(this.curnum);
     this.current = this.testreservation.find(item => item.id === id);
-    const asian: { foodid: number, price: number, quntity: number, name: String }
+    const asian: { foodid: number, price: number, quntity: number, name: string }
     = {'foodid': 0, 'price': 0, 'quntity': 0, 'name': 'masoud'};
     asian.foodid = this.current.id;
     asian.price = this.current.price;

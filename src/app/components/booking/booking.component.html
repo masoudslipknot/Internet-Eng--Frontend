@@ -1,16 +1,17 @@
-<div class="container-fluid">
+<div class="container-fluid" style="background-image: url('../../../assets/res.jpg');">
   <div class="row content">
     <div class="col-sm-3 sidenav">
-      <h2>{{ ContactInfo }}</h2>
+      <div class="information">
+      <h2>Contact Info</h2>
       <ul class="nav nav-pills nav-stacked">
         <div class="item">
-          <img src={{coffe}}>
-          <img src={{glass}}>
-          <img src={{meat}}>
+          <img src='assets/coffee.png'>
+          <img src='assets/glass.png'>
+          <img src='assets/meat.png'>
         </div>
-        <li> <a>{{ address }}</a></li>
-        <li><a >{{ tel }}</a></li>
-        <li><a >{{ gmail }}</a></li>
+        <li> <a>555 Love street Torento</a></li>
+        <li><a >(123) 465-6789</a></li>
+        <li><a >masouderfani1498@gmail.com</a></li>
       </ul><br>
       <h4> Booking a table online is easy and takes just a couple of minutes</h4> <br>
 
@@ -24,23 +25,17 @@
 
         We look forward to welcoming you at Angler.</p>
     </div>
+    </div>
 
-    <div class="col-sm-5">
-      <h2>{{ reservationform }}</h2>
+    <div class="col-sm-5" >
+      <div class="form">
+      <h2>reservation form</h2>
       <form action="/action_page.php">
         <div class="form-group">
-          <div class="form-group">
-            <label for="name">Name:</label>
-            <input type="text" class="form-control" id="name">
-          </div>
-          <div class="form-group">
-            <label for="familyname">Familyname:</label>
-            <input type="text" class="form-control" id="familyname">
-          </div>
-          <div class="form-group">
-            <label for="phonenumber">Phonenumber:</label>
-            <input type="number" class="form-control" id="phonenumber">
-          </div>
+          <label for="customerid">CustomerID</label>
+          <input type="number" class="form-control" id="customerid">
+        </div>
+        <div class="form-group">
           <label for="time">Time:</label>
           <input type="time" class="form-control" id="time">
         </div>
@@ -57,8 +52,26 @@
       </form>
       <h3 *ngIf="checkresult" > you can book this table it is avialable! </h3>
       <h3  *ngIf="checkresult==false"> it can not be booked! </h3>
-      <h3 *ngIf="reservidtoshow"> your reservation id is {{reserid}}</h3>
+      <h3 *ngIf="reservidtoshow"> your reservation id is {{ reserid }}</h3>
+      </div>
             </div>
+    <div class="col-sm-4 sidenav">
+      <div class="getid">
+      <div style="margin-top: 150px">
+
+        <div class="item" >
+          <img src='../../../assets/forget.png'>
+          <img src='../../../assets/key.png'>
+        </div>
+        <h3> If you forgot your customer id get it from here!</h3>
+      </div>
+      <div class="form-group" style="width: 50%">
+        <label for="phonenumber">Phonenumber:</label>
+        <input type="number" class="form-control" id="phonenumber">
+      </div>
+      <button type="button" type="button" class="btn btn-primary" style="width: 150px;"> GetId</button>
+      </div>
+    </div>
           </div>
         </div>
 

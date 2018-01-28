@@ -3,15 +3,30 @@
 
 /* Set gray background color and 100% height */
 .sidenav {
-  background-color: #f1f1f1;
+  /*background-color: #f1f1f1; */
   height: 100%;
+
+}
+.form{
+  background-color: rgba(255,255,255,0.5);
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-bottom: 5px;
+
+}
+.information{
+  background-color: rgba(255,255,255,0.5);
+
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-bottom: 5px;
 }
 
 /* Set black background color, white text and some padding */
 footer {
   background-color: #555;
   color: white;
-  padding: 15px;
+
 }
 
 /* On small screens, set height to 'auto' for sidenav and grid */
@@ -21,4 +36,13 @@ footer {
     padding: 15px;
   }
   .row.content {height: auto;}
+}
+.col-sm-5{
+
+}
+.getid{
+  background-color: rgba(255,255,255,0.5);
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-bottom: 5px;
 }

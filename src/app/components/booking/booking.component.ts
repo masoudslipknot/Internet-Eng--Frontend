@@ -12,15 +12,10 @@ export class BookingComponent implements OnInit {
   reservidtoshow: boolean;
   reserid: number;
   showsecond = false;
-  ContactInfo= 'Contact Info';
+  cutsomerid: string;
+  date: string;
+  time: string;
   checkresult: boolean;
-  coffe= 'assets/coffee.png';
-  glass= 'assets/glass.png';
-  meat= 'assets/meat.png';
-  reservationform= 'reservation form';
-  address= '555 Love street Torento';
-  tel= '(123) 465-6789';
-  gmail= 'masouderfani1498@gmail.com';
   constructor(private bookingComponent: ChecktableService, private  reserservice: ReserveService) { }
   getchecktable(): void {
     this.checkstate = this.bookingComponent.getcheckstatus();
@@ -36,6 +31,11 @@ export class BookingComponent implements OnInit {
     console.log(this.checkstate);
   }
   checkavailability(): void {
+    this.cutsomerid = (<HTMLInputElement>document.getElementById('customerid')).value;
+    this.time = String((<HTMLInputElement>document.getElementById('time')).value);
+    this.date = String((<HTMLInputElement>document.getElementById('date')).value)
+    this.time = this.time.replace(':','');
+    console.log(this.time);
     this.checkresult = this.checkstate;
     this.showsecond = true;
 

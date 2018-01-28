@@ -1,6 +1,10 @@
 .content{
   height: auto;
 }
+
+.card {
+  border-radius: 5px;
+}
 footer {
   background-color: #555;
   color: white;
