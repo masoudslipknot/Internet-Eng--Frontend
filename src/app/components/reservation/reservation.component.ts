@@ -17,21 +17,20 @@ export class ReservationComponent implements OnInit {
   subtotal = 0;
   total = 0;
   taxplus = 0;
-   curfood: { foodid: number, price: number, quntity: number, name: string }
+  curfood: { foodid: number, price: number, quntity: number, name: string }
     = {'foodid': 0, 'price': 0, 'quntity': 0, 'name': 'masoud'};
-  desription= 'enjoy and try the best delicious food that can be found in the world';
-  classtype= 'First class';
-  add= '+';
-  remove= '-';
+  desription= 'Yummy!';
   info= 'with 5% off';
-  testreservation: { category: string, id: number, price: number, imageurl: string, name: string }[];
+  testreservation: any[];
   chosenfood: { foodid: number, price: number, quntity: number, name: string }[] = [];
   constructor(private getrese: GetreservationService) { }
 
   getreservation(): void {
-    this.testreservation = this.getrese.getreservation();
-    //this.getrese.getreservation().subscribe(reservation => this.testreservation = reservation);
-    console.log(this.testreservation);
+    this.getrese.getMenu().subscribe(reservation => {
+      console.log(reservation);
+      this.testreservation = reservation;
+    });
+
   }
 
   ngOnInit() {
