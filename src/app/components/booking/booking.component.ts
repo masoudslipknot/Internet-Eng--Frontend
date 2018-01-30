@@ -36,9 +36,12 @@ export class BookingComponent implements OnInit {
 
   // TODO: show this on the UI side
   reservation: Reservation;
+  showReservationEnabled = false;
 
   // TODO: show customer when fetched by phone number
   fetchedCustomerInfo: Customer;
+  userInfoEnabled = false;
+
 
   constructor(private csService: CustomerServiceService,
               private bookTable: BookTableService,
@@ -78,7 +81,7 @@ export class BookingComponent implements OnInit {
     ts.end = '' + endTime;
 
     let cs: Customer = new Customer;
-    cs.id = +csId;
+    cs.customerId = +csId;
 
     console.log(this.partysize);
 
@@ -109,6 +112,7 @@ export class BookingComponent implements OnInit {
 
     this.bookTable.bookTable(checkReq).subscribe(response => {
       console.log(response);
+      this.showReservationEnabled = true;
       this.reservation = response;
     });
 
@@ -119,6 +123,7 @@ export class BookingComponent implements OnInit {
 
     this.csService.getCustomerByPhoneNumber(phoneNumber).subscribe(res => {
       console.log(res);
+      this.userInfoEnabled = true;
       this.fetchedCustomerInfo = res;
     });
   }

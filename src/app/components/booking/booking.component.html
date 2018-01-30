@@ -1,7 +1,7 @@
 <div class="container-fluid" style="background-image: url('../../../assets/res.jpg');">
   <div class="row content">
     <div class="col-sm-3 sidenav">
-      <div class="information">
+      <div class="information" style="border-radius: 5px">
       <h2>Contact Info</h2>
       <ul class="nav nav-pills nav-stacked">
         <div class="item">
@@ -28,39 +28,59 @@
     </div>
 
     <div class="col-sm-5" >
-      <div class="form">
-      <h2>reservation form</h2>
-      <form action="/action_page.php">
-        <div class="form-group">
-          <label for="customerid">CustomerID</label>
-          <input type="number" class="form-control" id="customerid">
-        </div>
-        <div class="form-group">
-          <label for="time">Time:</label>
-          <input type="time" class="form-control" id="time">
-        </div>
-        <div class="form-group">
-          <label for="date">Date:</label>
-          <input type="date" class="form-control" id="date">
-        </div>
-        <div class="form-group">
-          <label for="partysize">Party Size:</label>
-          <input type="number" class="form-control" id="partysize">
-        </div>
-        <button *ngIf="checkresult" type="button" class="btn btn-default" style="width: 150px;" (click)="book()">Book now</button>
-        <button type="button" class="btn btn-default" style="width: 150px;" (click)="checkAvailability()">Check
-          Availability
-        </button>
-      </form>
-      <h3 *ngIf="checkresult" > you can book this table it is avialable! </h3>
+      <!--Table Booking-->
+      <div class="form" style="border-radius: 5px">
+        <h2>reservation form</h2>
+        <form action="#">
+          <div class="form-group">
+            <label for="customerid">CustomerID</label>
+            <input type="number" class="form-control" id="customerid">
+          </div>
+          <div class="form-group">
+            <label for="time">Time:</label>
+            <input type="time" class="form-control" id="time">
+          </div>
+          <div class="form-group">
+            <label for="date">Date:</label>
+            <input type="date" class="form-control" id="date">
+          </div>
+          <div class="form-group">
+            <label for="partysize">Party Size:</label>
+            <input type="number" class="form-control" id="partysize">
+          </div>
+          <button *ngIf="checkresult" type="button" class="btn btn-default" style="width: 150px;" (click)="book()">Book
+            now
+          </button>
+          <button type="button" class="btn btn-default" style="width: 150px;" (click)="checkAvailability()">Check
+            Availability
+          </button>
+        </form>
+        <h3 *ngIf="checkresult"> you can book this table it is avialable! </h3>
         <h3 *ngIf="checkresult==false"> it can not be booked! </h3>
-      <h3 *ngIf="reservidtoshow"> your reservation id is {{ reserid }}</h3>
+        <h3 *ngIf="reservidtoshow"> your reservation id is {{ reserid }}</h3>
       </div>
-            </div>
 
+
+      <!--Show Reservation Info-->
+      <div class="alert alert-success" role="alert" *ngIf="showReservationEnabled" style="margin-top: 20px">
+        <h4 class="alert-heading">Well done!</h4>
+        <ul>
+          <li><b>Reservation Id:</b> {{reservation.id}}</li>
+          <li><b>Number of Seats:</b> {{reservation.relatedTable.numberOfSeats}}</li>
+          <li><b>Reservation Date:</b> {{reservation.reservationDate}}</li>
+          <li><b>Time</b> {{reservation.reservationTime.start}} - {{reservation.reservationTime.end}}</li>
+        </ul>
+      </div>
+
+
+    </div>
+
+    <!--Side Nav-->
     <div class="col-sm-4 sidenav">
-      <div class="getid">
-        <div style="margin-top: 150px">
+
+      <!--Forgot Customer Id-->
+      <div class="getid" style="border-radius: 5px">
+        <div style="margin-top: 20px">
 
           <div class="item">
             <img src='../../../assets/forget.png'>
@@ -81,6 +101,40 @@
 
         <h3 *ngIf="customercheck"> your reservation id is {{ customernum }}</h3>
       </div>
+
+      <!--Customer Retrieval-->
+      <div class="showId" *ngIf="userInfoEnabled">
+        <br><br>
+        <div class="container-fluid well span6" style="background-color: rgba(255,255,255,0.8);">
+          <div class="row-fluid">
+            <div class="span2">
+              <img src="../../../assets/cesar.jpg" class="img-circle" style="width: 100px; height: 100px">
+            </div>
+
+            <div class="span8">
+              <h3><b>Full Name:</b> {{fetchedCustomerInfo.fullName}}</h3>
+              <h6><b>Customer Id:</b> {{fetchedCustomerInfo.customerId}}</h6>
+              <h6><b>Phone Number:</b> {{fetchedCustomerInfo.phoneNumber}}</h6>
+              <h6><b>Year:</b> 1 Year</h6>
+            </div>
+
+            <div class="span2">
+              <div class="btn-group">
+                <a class="btn dropdown-toggle btn-info" data-toggle="dropdown" href="#">
+                  Action
+                  <span class="icon-cog icon-white"></span><span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a href="#"><span class="icon-wrench"></span> Modify</a></li>
+                  <li><a href="#"><span class="icon-trash"></span> Delete</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
     </div>
   </div>
 </div>
