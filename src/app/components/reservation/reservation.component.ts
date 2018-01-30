@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { GetreservationService } from '../../services/getreservation.service';
+import {MenuItemService} from '../../services/menu-item/menu-item.service';
+import {MenuItem} from '../../models/MenuItem';
 
 
 @Component({
@@ -19,14 +20,18 @@ export class ReservationComponent implements OnInit {
   taxplus = 0;
   curfood: { foodid: number, price: number, quntity: number, name: string }
     = {'foodid': 0, 'price': 0, 'quntity': 0, 'name': 'masoud'};
-  desription= 'Yummy!';
+  desription = 'Yummy!';
   info= 'with 5% off';
   testreservation: any[];
   chosenfood: { foodid: number, price: number, quntity: number, name: string }[] = [];
-  constructor(private getrese: GetreservationService) { }
 
-  getreservation(): void {
-    this.getrese.getMenu().subscribe(reservation => {
+  constructor
+  (private menuItemService: MenuItemService) {
+  }
+
+  getMenuItems(): void {
+    this.menuItemService.getAllMenuItems().subscribe(reservation => {
+
       console.log(reservation);
       this.testreservation = reservation;
     });
@@ -34,7 +39,7 @@ export class ReservationComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getreservation();
+    this.getMenuItems();
   }
 
   addS(id: number): void {

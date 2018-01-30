@@ -1,6 +1,6 @@
-import { TestBed, inject } from '@angular/core/testing';
+import {TestBed, inject} from '@angular/core/testing';
 
-import { CheckTableService } from './check-table.service';
+import {CheckTableService} from './check-table.service';
 
 describe('CheckTableService', () => {
   beforeEach(() => {

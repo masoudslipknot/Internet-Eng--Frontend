@@ -1,22 +1,22 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {Observable} from 'rxjs/Observable';
 
 
 // services
-import { ChecktableService} from '../../services/checktable.service';
-import { ReserveService} from '../../services/reserve.service';
-import { CheckTableService } from '../../services/check-table/check-table.service';
-import { GetcustomeridService } from '../../services/getcustomerid.service';
-import { BookTableService } from '../../services/book-table/book-table.service';
-import { CustomerServiceService } from '../../services/customer-service/customer-service.service'
+import {ChecktableService} from '../../services/checktable.service';
+import {ReserveService} from '../../services/reserve.service';
+import {CheckTableService} from '../../services/check-table/check-table.service';
+import {GetcustomeridService} from '../../services/getcustomerid.service';
+import {BookTableService} from '../../services/book-table/book-table.service';
+import {CustomerServiceService} from '../../services/customer-service/customer-service.service';
 
 
 // models
-import { Customer } from '../../models/Customer';
-import { CheckRequest } from '../../models/CheckRequest';
-import { TimeSpan } from '../../models/TimeSpan';
-import { Reservation } from '../../models/Reservation';
+import {Customer} from '../../models/Customer';
+import {CheckRequest} from '../../models/CheckRequest';
+import {TimeSpan} from '../../models/TimeSpan';
+import {Reservation} from '../../models/Reservation';
 
 @Component({
   selector: 'app-booking',
@@ -45,7 +45,8 @@ export class BookingComponent implements OnInit {
               private checkTableAvailability: CheckTableService,
               private reserservice: ReserveService,
               private customer: GetcustomeridService,
-              private http: HttpClient) { }
+              private http: HttpClient) {
+  }
 
 
   getreservationid(): void {
@@ -72,11 +73,11 @@ export class BookingComponent implements OnInit {
 
     let startTime = time.replace(':', '');
     let endTime = +startTime + 200;
-    let ts:TimeSpan = new TimeSpan();
+    let ts: TimeSpan = new TimeSpan();
     ts.start = startTime;
-    ts.end = "" + endTime;
+    ts.end = '' + endTime;
 
-    let cs:Customer = new Customer;
+    let cs: Customer = new Customer;
     cs.id = +csId;
 
     console.log(this.partysize);
@@ -97,21 +98,16 @@ export class BookingComponent implements OnInit {
 
     let checkReq: CheckRequest = this.extractCheckRequest();
 
-    this.checkTableAvailability.checkForAvailableTable(checkReq).subscribe( response => {
+    this.checkTableAvailability.checkForAvailableTable(checkReq).subscribe(response => {
       console.log(response);
       this.checkstate = true;
     });
   }
 
-  getID(): void {
-    console.log(this.customernum);
-    this.customercheck = true;
-  }
-
   book(): void {
     let checkReq: CheckRequest = this.extractCheckRequest();
 
-    this.bookTable.bookTable(checkReq).subscribe( response => {
+    this.bookTable.bookTable(checkReq).subscribe(response => {
       console.log(response);
       this.reservation = response;
     });
@@ -121,10 +117,10 @@ export class BookingComponent implements OnInit {
   getCustomerByPhone() {
     let phoneNumber = (<HTMLInputElement>document.getElementById('phoneNumber')).value;
 
-    this.csService.getCustomerByPhoneNumber(phoneNumber).subscribe( res => {
+    this.csService.getCustomerByPhoneNumber(phoneNumber).subscribe(res => {
       console.log(res);
       this.fetchedCustomerInfo = res;
-    })
+    });
   }
 }
 

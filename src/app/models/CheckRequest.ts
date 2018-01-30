@@ -9,6 +9,6 @@ export class CheckRequest {
   id: number;
   date: string;
   numberOfSeats: number;
-  relatedCustomer: {customerId: number};
+  relatedCustomer: { customerId: number };
   ts: TimeSpan;
 }

@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {GetreservationService} from '../../services/getreservation.service';
+import {MenuItemService} from '../../services/menu-item/menu-item.service';
 import {MenuItem} from '../../models/MenuItem';
 
 
@@ -10,15 +10,14 @@ import {MenuItem} from '../../models/MenuItem';
 })
 export class MenuComponent implements OnInit {
   menuItems: MenuItem[];
-  info = 'with 5% off';
-  description = 'enjoy and try the best delicious food that can be found in the world';
+  info = 'With 5% off';
+  description = 'Enjoy and try the best delicious foods that can be found in the world';
 
-  constructor(private getrese: GetreservationService) {
+  constructor(private menuItemService: MenuItemService) {
   }
 
   getMenuItems(): void {
-    this.getrese.getMenu().subscribe(menuItems => {
-      console.log('Hello2!');
+    this.menuItemService.getAllMenuItems().subscribe(menuItems => {
       this.menuItems = menuItems;
     });
 

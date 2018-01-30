@@ -1,11 +1,11 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 
 import {HomeComponent} from './components/home/home.component';
 import {BookingComponent} from './components/booking/booking.component';
 import {ReservationComponent} from './components/reservation/reservation.component';
 import {MenuComponent} from './components/menu/menu.component';
-import {AdminpanelComponent} from "./components/adminpanel/adminpanel.component";
+import {AdminpanelComponent} from './components/adminpanel/adminpanel.component';
 
 
 const appRoutes: Routes = [
@@ -14,7 +14,7 @@ const appRoutes: Routes = [
   {path: 'reservation', component: ReservationComponent},
   {path: 'Adamin', component: AdminpanelComponent},
   {path: 'menu', component: MenuComponent},
-  {path:  '', redirectTo: '/home', pathMatch: 'full'}
+  {path: '', redirectTo: '/home', pathMatch: 'full'}
 ];
 
 @NgModule({
@@ -29,8 +29,8 @@ const appRoutes: Routes = [
   exports: [
     RouterModule
   ],
-  providers: [
-  ]
+  providers: []
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}
 

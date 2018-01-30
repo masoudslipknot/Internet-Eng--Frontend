@@ -61,8 +61,8 @@
   <div id = "container" class=" col-sm-8" style=" height: 630px; overflow: auto" >
     <div *ngFor="let x of testreservation" style="float: left ; margin:5%" >
 
-      <div class="card" style="width: 31.5rem; background-color: #f1f1f1;">
-        <img class="card-img-top" src="{{x.imageFileName}}" alt="Card image cap">
+      <div class="card" style="width: 31.5rem; background-color: #f1f1f1; border-radius: 5px">
+        <img class="card-img-top" src="{{x.imageFileName}}" alt="Card image cap" style="border-radius: 5px;">
         <div class="card-block">
           <h4 class="card-title" style="padding: 10px">{{ x.name }}</h4>
           <p class="card-text" style="padding: 10px">{{ desription }}</p>

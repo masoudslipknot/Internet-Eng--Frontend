@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { AdminpanelComponent } from './adminpanel.component';
+import {AdminpanelComponent} from './adminpanel.component';
 
 describe('AdminpanelComponent', () => {
   let component: AdminpanelComponent;
@@ -8,9 +8,9 @@ describe('AdminpanelComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AdminpanelComponent ]
+      declarations: [AdminpanelComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

@@ -1,9 +1,12 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 
 @Injectable()
 export class ChecktableService {
-   checkstatus = true;
-  constructor() { }
+  checkstatus = true;
+
+  constructor() {
+  }
+
   getcheckstatus() {
     return this.checkstatus;
   }

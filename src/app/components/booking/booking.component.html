@@ -48,31 +48,40 @@
           <input type="number" class="form-control" id="partysize">
         </div>
         <button *ngIf="checkresult" type="button" class="btn btn-default" style="width: 150px;" (click)="book()">Book now</button>
-        <button type="button" class="btn btn-default" style="width: 150px;" (click)="checkAvailability()">Check Availability</button>
+        <button type="button" class="btn btn-default" style="width: 150px;" (click)="checkAvailability()">Check
+          Availability
+        </button>
       </form>
       <h3 *ngIf="checkresult" > you can book this table it is avialable! </h3>
-      <h3 *ngIf="checkresult==false"> it can not be booked! </h3>
+        <h3 *ngIf="checkresult==false"> it can not be booked! </h3>
       <h3 *ngIf="reservidtoshow"> your reservation id is {{ reserid }}</h3>
       </div>
             </div>
+
     <div class="col-sm-4 sidenav">
       <div class="getid">
-      <div style="margin-top: 150px">
+        <div style="margin-top: 150px">
 
-        <div class="item" >
-          <img src='../../../assets/forget.png'>
-          <img src='../../../assets/key.png'>
+          <div class="item">
+            <img src='../../../assets/forget.png'>
+            <img src='../../../assets/key.png'>
+          </div>
+
+          <h3> If you forgot your customer id get it from here!</h3>
         </div>
-        <h3> If you forgot your customer id get it from here!</h3>
-      </div>
-      <div class="form-group" style="width: 50%">
-        <label for="phonenumber">Phonenumber:</label>
-        <input type="number" class="form-control" id="phoneNumber">
-      </div>
-      <button type="button" type="button" class="btn btn-primary" (click)="getCustomerByPhone()" style="width: 150px;">Get My Information!</button>
+
+        <div class="form-group" style="width: 50%">
+          <label for="phonenumber">Phonenumber:</label>
+          <input type="number" class="form-control" id="phoneNumber">
+        </div>
+
+        <button type="button" type="button" class="btn btn-primary" (click)="getCustomerByPhone()"
+                style="width: 150px;">Get My Information!
+        </button>
+
         <h3 *ngIf="customercheck"> your reservation id is {{ customernum }}</h3>
       </div>
     </div>
-          </div>
-        </div>
+  </div>
+</div>
 
