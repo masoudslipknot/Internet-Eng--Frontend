@@ -39,7 +39,7 @@
                   <td class="emptyrow text-right">$20</td>
                 </tr>
                 <tr>
-                  <td class="emptyrow"><i class="fa fa-barcode iconbig"></i></td>
+                  <td class="emptyrow"></td>
                   <td class="emptyrow"></td>
                   <td class="emptyrow text-center"><strong>Total</strong></td>
                   <td class="emptyrow text-right">{{ taxplus }}</td>
@@ -48,7 +48,17 @@
               </table>
             </div>
           </div>
-          <BUTTON href="#" style="margin-left: 10%; margin-bottom: 3%;"  class="btn btn-primary">Pay Online!</BUTTON>
+
+          <div class="input-group" style="padding: 10px">
+            <span class="input-group-addon myButtonHover information" style="width: 25%"
+                  *ngIf="orderSubmittedSuccessFully">
+              <i class="fa fa-thumbs-o-up" style="color: black;font-size: 36px" aria-hidden="true"></i>
+            </span>
+
+            <input id="ResId" type="text" placeholder="Reservation Number:" style="height: 50px; width: 100%"
+                   class="form-control" aria-label="Reservation Number:">
+            <span class="input-group-addon myButtonHover" style="width: 25%" (click)="submitOrder()">Confirm</span>
+          </div>
         </div>
 
       </div>
@@ -73,12 +83,13 @@
           <li class="list-group-item">{{ info }}</li>
         </ul>
         <div class="card-block">
-          <div class="input-group" >
-            <span class="input-group-addon" style="width: 25%" (click)="removeS(x.id)">-</span>
-            <input id="menu{{x.id}}"  value="0" type="text"  style="height: 50px; width: 100%" class="form-control" aria-label="Amount (to the nearest dollar)">
-            <span class="input-group-addon" style="width: 25%" (click)="addS(x.id)">+</span>
 
+          <div class="input-group" >
+            <span class="input-group-addon myButtonHover" style="width: 25%" (click)="removeS(x.id)">-</span>
+            <input id="menu{{x.id}}"  value="0" type="text"  style="height: 50px; width: 100%" class="form-control" aria-label="Amount (to the nearest dollar)">
+            <span class="input-group-addon myButtonHover" style="width: 25%" (click)="addS(x.id)">+</span>
           </div>
+
         </div>
       </div>
 

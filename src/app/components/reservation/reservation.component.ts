@@ -1,6 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+
+// models
+import {OrderRequest} from '../../models/OrderRequest';
+import {OrderItemPair} from '../../models/OrderItemPair';
+
+// services
+import {OrderService} from '../../services/order/order.service';
 import {MenuItemService} from '../../services/menu-item/menu-item.service';
-import {MenuItem} from '../../models/MenuItem';
+import {isUndefined} from 'util';
 
 
 @Component({
@@ -14,6 +21,7 @@ export class ReservationComponent implements OnInit {
   current: { id: number, price: number, imageurl: string, name: string };
   subtrack: { foodid: number, price: number, quntity: number, name: string }
     = {'foodid': 0, 'price': 0, 'quntity': 0, 'name': 'masoud'};
+
   curnum: number;
   subtotal = 0;
   total = 0;
@@ -25,13 +33,16 @@ export class ReservationComponent implements OnInit {
   testreservation: any[];
   chosenfood: { foodid: number, price: number, quntity: number, name: string }[] = [];
 
+
+  // order submission
+  orderSubmittedSuccessFully: boolean = false;
+
   constructor
-  (private menuItemService: MenuItemService) {
+  (private menuItemService: MenuItemService, private orderService: OrderService) {
   }
 
   getMenuItems(): void {
     this.menuItemService.getAllMenuItems().subscribe(reservation => {
-
       console.log(reservation);
       this.testreservation = reservation;
     });
@@ -89,6 +100,40 @@ export class ReservationComponent implements OnInit {
     if (this.subtrack.quntity === 0 ) {
       this.chosenfood.splice(this.andis, 1);
     }
+  }
+
+  submitOrder(): void {
+    let i = {'foodid': 0, 'price': 0, 'quntity': 0, 'name': ''};
+    let orderReq: OrderRequest = new OrderRequest;
+
+    let resId = this.currentval = (<HTMLInputElement>document.getElementById('ResId')).value;
+
+    orderReq.reservationId = +resId;
+
+
+    for (i in this.chosenfood) {
+      console.log();
+      let temp = this.chosenfood[i];
+
+      let orderItemPair: OrderItemPair = new OrderItemPair();
+
+      orderItemPair.number = temp.quntity;
+      orderItemPair.name = temp.name;
+
+      orderReq.orderedItems.push(orderItemPair);
+    }
+
+    console.log('REQ');
+    console.log(orderReq);
+
+    this.orderService.bookTable(orderReq).subscribe(res => {
+      console.log(res);
+
+      if (!isUndefined(res.orderId)) {
+        this.orderSubmittedSuccessFully = true;
+      }
+
+    });
   }
 
 }

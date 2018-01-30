@@ -23,7 +23,7 @@ import {GetcustomeridService} from './services/getcustomerid.service';
 import {BookTableService} from './services/book-table/book-table.service';
 import {CustomerServiceService} from './services/customer-service/customer-service.service';
 import {MenuItemService} from './services/menu-item/menu-item.service';
-
+import {OrderService} from './services/order/order.service';
 
 @NgModule({
 
@@ -51,6 +51,7 @@ import {MenuItemService} from './services/menu-item/menu-item.service';
     ReserveService,
     GetcustomeridService,
     MenuItemService,
+    OrderService,
   ],
 
   bootstrap: [AppComponent]

@@ -7,3 +7,8 @@ footer {
   color: white;
   padding: 15px;
 }
+
+.myButtonHover:hover {
+  background-color: #555;
+  color: white;
+}
